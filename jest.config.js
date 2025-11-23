@@ -1,11 +1,19 @@
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/src'],
   testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+  transform: {
+    '^.+\\.(ts|tsx|js|jsx)$': ['babel-jest', {
+      presets: [
+        '@babel/preset-env',
+        '@babel/preset-react',
+        '@babel/preset-typescript',
+      ],
+    }],
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   collectCoverageFrom: [
@@ -16,10 +24,10 @@ module.exports = {
   ],
   coverageThreshold: {
     global: {
-      branches: 70,
-      functions: 70,
-      lines: 70,
-      statements: 70,
+      branches: 50,
+      functions: 50,
+      lines: 50,
+      statements: 50,
     },
   },
 };

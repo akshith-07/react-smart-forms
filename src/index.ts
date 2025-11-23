@@ -3,6 +3,7 @@ export { Form } from './components/Form';
 export { MultiStepForm } from './components/MultiStepForm';
 export { FormBuilder } from './components/FormBuilder';
 export { FormField } from './components/fields/FormField';
+export { ErrorBoundary } from './components/ErrorBoundary';
 
 // Field Components
 export { TextField } from './components/fields/TextField';
@@ -17,6 +18,11 @@ export { DateField } from './components/fields/DateField';
 export { RangeField } from './components/fields/RangeField';
 export { RatingField } from './components/fields/RatingField';
 export { SwitchField } from './components/fields/SwitchField';
+export { ColorField } from './components/fields/ColorField';
+export { SignatureField } from './components/fields/SignatureField';
+export { RichTextField } from './components/fields/RichTextField';
+export { AutocompleteField } from './components/fields/AutocompleteField';
+export { MultiSelectField } from './components/fields/MultiSelectField';
 
 // Hooks
 export { useForm } from './hooks/useForm';
