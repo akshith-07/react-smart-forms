@@ -38,8 +38,16 @@
     "schema",
     "accessibility"
   ],
-  "author": "",
+  "author": {
+    "name": "React Smart Forms Team",
+    "email": "support@react-smart-forms.com",
+    "url": "https://github.com/akshith-07/react-smart-forms"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/akshith-07/react-smart-forms"

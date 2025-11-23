@@ -64,6 +64,57 @@ export const FileField: React.FC<FileFieldProps> = ({
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) {
+      onChange(null);
+      return;
+    }
+
+    // Validate file count
+    if (config.maxFiles && files.length > config.maxFiles) {
+      alert(`Maximum ${config.maxFiles} file(s) allowed`);
+      e.target.value = '';
+      return;
+    }
+
+    // Validate file sizes and types
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
+      // Check file size
+      if (config.maxSize && file.size > config.maxSize) {
+        alert(
+          `File "${file.name}" exceeds maximum size of ${(config.maxSize / 1024 / 1024).toFixed(2)} MB`
+        );
+        e.target.value = '';
+        return;
+      }
+
+      // Check MIME type if accept is specified
+      if (config.accept) {
+        const acceptedTypes = config.accept.split(',').map((t) => t.trim());
+        const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
+        const mimeType = file.type;
+
+        const isAccepted = acceptedTypes.some((type) => {
+          if (type.startsWith('.')) {
+            return fileExtension === type.toLowerCase();
+          }
+          if (type.endsWith('/*')) {
+            const category = type.split('/')[0];
+            return mimeType.startsWith(category + '/');
+          }
+          return mimeType === type;
+        });
+
+        if (!isAccepted) {
+          alert(`File "${file.name}" is not an accepted file type. Accepted: ${config.accept}`);
+          e.target.value = '';
+          return;
+        }
+      }
+    }
+
     onChange(e.target.files);
   };
 

@@ -1,0 +1,59 @@
+# Source files
+src/
+examples/
+.storybook/
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+**/__tests__/
+coverage/
+
+# Configuration files
+.eslintrc.json
+jest.config.js
+rollup.config.js
+tsconfig.json
+.babelrc
+
+# Documentation (keep only essential)
+CONTRIBUTING.md
+PUBLISHING.md
+CLAUDE.md
+
+# Build files
+*.tsbuildinfo
+
+# Storybook
+storybook-static/
+*.stories.tsx
+*.stories.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
